@@ -9,7 +9,7 @@ class Post(models.Model):
     content = models.TextField("本文", max_length=200)
     created = models.DateTimeField("作成日", default=timezone.now)
 
-    read = models.IntegerField(null=True, blank=True , default = 1)
+    read = models.IntegerField(null=True, blank=True , default = 0)
     readtext = models.TextField(null=True, blank=True , default= 'a')
 
     def __str__(self):
