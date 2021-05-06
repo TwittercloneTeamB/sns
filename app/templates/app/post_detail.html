@@ -7,14 +7,15 @@
         <h5 class="my-4">{{ post_data.created }} by {{ post_data.author }}</h5>
         <hr>
         <p>{{ post_data.content|linebreaksbr }}</p>
-        {% if user.is_authenticated %}
         <hr>
         <div class="d-flex mb-5">
+        {% if request.user.id == post_data.author_id %}
             <a href="{% url 'post_edit' post_data.id %}" class="btn btn-warning mr-2">編集</a>
             <a href="{% url 'post_delete' post_data.id %}" class="btn btn-danger mr-2">削除</a>
+        {% endif %}
             <a href="{% url 'read' post_data.pk %}" class="btn btn-secondary " role="button" aria-pressed="true">いいね する</a>
         </div>
     </div>
 </div>
-{% endif %}
+
 {% endblock  %}
