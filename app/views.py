@@ -80,4 +80,15 @@ class PostDeleteView(LoginRequiredMixin, View):
         post_data.delete()
         return redirect('index')
 
+
+def readfunc(request, pk):
+		object =Post.objects.get(pk=pk)
+		username = request.user.get_username()
+		if username in object.readtext:
+				return redirect('index')
+		else:
+				object.read = object.read + 1
+				object.readtext = object.readtext + '' + username
+				object.save()
+				return redirect('index')
     

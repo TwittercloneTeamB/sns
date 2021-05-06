@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: gray;
+    background-color: rgb(31,37,46);
     display: flex;
     flex-flow: column;
     min-height: 100vh;
